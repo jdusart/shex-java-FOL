@@ -99,7 +99,7 @@ class TestBugReportPrimKeyDiff {
 		
 		Set<Pair<RDFTerm,Label>> shapes = new HashSet<Pair<RDFTerm,Label>>();
 		for (Pair<RDFTerm,Label> pair:validation.getTyping().getAllStatus().keySet())
-			if (!pair.two.isGenerated())
+			if (!pair.two.isGenerated() && validation.getTyping().isConformant(pair.one, pair.two))
 				shapes.add(pair);
 
 		Set<Pair<Pair<RDFTerm,RDFTerm>, Label>> triples = new HashSet<Pair<Pair<RDFTerm,RDFTerm>, Label>>();

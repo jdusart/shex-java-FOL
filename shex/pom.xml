@@ -28,9 +28,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/iovka/shex-java</connection>
-		<developerConnection>scm:git:ssh://github.com:iovka/shex-java</developerConnection>
-		<url>https://github.com/iovka/shex-java/tree/master</url>
+		<connection>scm:git:git://github.com/jdusart/shex-java-FOL</connection>
+		<developerConnection>scm:git:ssh://github.com:jdusart/shex-java-FOL</developerConnection>
+		<url>https://github.com/jdusart/shex-java-FOL/tree/master</url>
 	</scm>
 
 	<distributionManagement>
@@ -43,7 +43,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-		<jena.version>3.0.0</jena.version>
 		<junit.version>4.12</junit.version>
 		<junit.jupiter.version>5.0.0</junit.jupiter.version>
 		<junit.vintage.version>${junit.version}.0</junit.vintage.version>
