@@ -1,2 +1,3 @@
 # shex-java-FOL
-Extension for shex-java through first order logic formula
+
+An extension for shex-java through first order logic formula. More to come....
