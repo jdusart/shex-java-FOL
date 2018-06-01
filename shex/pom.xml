@@ -4,7 +4,7 @@
 
 	<groupId>fr.inria.lille.shexjava</groupId>
 	<artifactId>shexjava-FOL</artifactId>
-	<version>1.0</version>
+	<version>0.1a</version>
 	<packaging>jar</packaging>
 
 	<name>ShExjavaFOL</name>
