@@ -29,6 +29,7 @@ import fr.inria.lille.shexjava.schema.FOL.parsing.FOLVisitorImpl;
 import fr.inria.lille.shexjava.schema.parsing.GenParser;
 import fr.inria.lille.shexjava.util.CommonGraph;
 import fr.inria.lille.shexjava.util.Pair;
+import fr.inria.lille.shexjava.validation.MatchingCollector;
 import fr.inria.lille.shexjava.validation.RefineValidation;
 
 class TestBugReportPrimKeyDiff {
@@ -89,7 +90,7 @@ class TestBugReportPrimKeyDiff {
 		validation.validate(bug1, new Label(rdfFactory.createIRI("http://a.example/BugReport")));
 		System.out.println();
 		System.out.println("TYPING (only the not generated):");
-		for (Pair<RDFTerm,Label> pair:validation.getTyping().getAllStatus().keySet())
+		for (Pair<RDFTerm,Label> pair:validation.getShapeMap().getAllStatus().keySet())
 			if (!pair.two.isGenerated())
 				System.out.println(pair);
 		
@@ -98,13 +99,14 @@ class TestBugReportPrimKeyDiff {
 
 		
 		Set<Pair<RDFTerm,Label>> shapes = new HashSet<Pair<RDFTerm,Label>>();
-		for (Pair<RDFTerm,Label> pair:validation.getTyping().getAllStatus().keySet())
-			if (!pair.two.isGenerated() && validation.getTyping().isConformant(pair.one, pair.two))
+		for (Pair<RDFTerm,Label> pair:validation.getShapeMap().getAllStatus().keySet())
+			if (!pair.two.isGenerated() && validation.getShapeMap().isConformant(pair.one, pair.two))
 				shapes.add(pair);
 
+		MatchingCollector mc = (MatchingCollector) validation.getMatchingCollector().toArray()[0];
 		Set<Pair<Pair<RDFTerm,RDFTerm>, Label>> triples = new HashSet<Pair<Pair<RDFTerm,RDFTerm>, Label>>();
 		for (Pair<RDFTerm,Label> p1:shapes)
-			for (Pair<Triple,Label> aff:validation.getTyping().getMatch(p1.one, p1.two))
+			for (Pair<Triple,Label> aff:mc.getMatch(p1.one, p1.two))
 				if (!aff.two.isGenerated()) {
 					Pair<RDFTerm,RDFTerm> couple;
 					if (aff.one.getSubject().equals(p1.one))

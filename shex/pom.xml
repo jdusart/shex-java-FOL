@@ -54,7 +54,7 @@
 		<dependency>
 	      <groupId>fr.inria.lille.shexjava</groupId>
 	      <artifactId>shexjava-core</artifactId>
-	      <version>1.1</version>
+	      <version>1.1a</version>
 	      <scope>provided</scope>
 		</dependency>
 		<dependency>
