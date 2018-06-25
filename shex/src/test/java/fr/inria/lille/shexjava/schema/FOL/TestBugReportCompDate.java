@@ -86,7 +86,7 @@ class TestBugReportCompDate {
 		validation.validate(bug1, new Label(rdfFactory.createIRI("http://a.example/BugReport")));
 		System.out.println();
 		System.out.println("TYPING (only the not generated):");
-		for (Pair<RDFTerm,Label> pair:validation.getShapeMap().getAllStatus().keySet())
+		for (Pair<RDFTerm,Label> pair:validation.getTyping().getAllStatus().keySet())
 			if (!pair.two.isGenerated())
 				System.out.println(pair);
 		
@@ -95,8 +95,8 @@ class TestBugReportCompDate {
 
 		
 		Set<Pair<RDFTerm,Label>> shapes = new HashSet<Pair<RDFTerm,Label>>();
-		for (Pair<RDFTerm,Label> pair:validation.getShapeMap().getAllStatus().keySet())
-			if (!pair.two.isGenerated() && validation.getShapeMap().isConformant(pair.one, pair.two))
+		for (Pair<RDFTerm,Label> pair:validation.getTyping().getAllStatus().keySet())
+			if (!pair.two.isGenerated() && validation.getTyping().isConformant(pair.one, pair.two))
 				shapes.add(pair);
 		
 		System.out.println(shapes);
